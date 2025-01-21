@@ -6,6 +6,7 @@ import { Servicios } from './components/servicios/servicios'
 import { Proyectos } from './components/proyectos/proyectos'
 import { Contacto } from './components/contacto/contacto'
 import { Footer } from './components/footer/footer'
+import { Whatsapp } from './components/whatsapp/whatsapp'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
        <Proyectos></Proyectos>
        <Contacto></Contacto>
        <Footer></Footer>
+       <Whatsapp></Whatsapp>
     </>
   )
 }
