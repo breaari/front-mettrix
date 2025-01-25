@@ -2,26 +2,26 @@ import { Form } from "./form";
 
 export const Contacto = () => {
     return (
-        <div className="w-full h-auto flex flex-row justify-center items-center p-32 ">
+        <div id="contacto" className="w-full h-auto flex flex-row justify-center items-center px-32 py-20 ">
             <div className="w-1/2 h-full bg-white">
                 <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
-                    Lorem ipsum dolor sit amet.
+                    Contáctanos y juntos haremos realidad tus proyectos tecnológicos.
                 </h2>
 
                 <h1 className="text-5xl font-bold mb-6 text-black">
-                ¿Lorem ipsum dolor sit amet?
+                    ¿Listo para dar el siguiente paso hacia la innovación?
                 </h1>
                 <h3 className="text-lg text-gray-500 mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+                Nos especializamos en desarrollar proyectos personalizados que integran innovación tecnológica y eficiencia para responder a las necesidades específicas de cada cliente. Trabajamos estrechamente para comprender objetivos y desafíos, diseñando soluciones a medida que optimizan procesos y generan resultados efectivos. 
                 </h3>
                 <h3 className="text-lg text-gray-500 mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+                Con un equipo altamente capacitado y comprometido, te acompañamos en cada etapa del proyecto, desde la idea inicial hasta su implementación, asegurando un impacto positivo y sostenible en tus operaciones. 
                 </h3>
                 <h3 className="text-lg text-gray-500 mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Nuestro equipo está listo para colaborar contigo y llevar tus ideas al siguiente nivel. 
                 </h3>
                 <h3 className="text-lg text-gray-500">
-                    <strong>¡Lorem ipsum dolor sit amet, consectetur adipiscing elit!</strong>
+                    <strong>¡Estamos listos para convertir tus ideas en realidad!</strong>
                 </h3>
             </div>
             <div className="w-1/2 flex flex-col ml-24 justify-center bg-white">
