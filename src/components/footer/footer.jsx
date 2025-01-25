@@ -11,7 +11,7 @@ export const Footer = () => {
                 <div className="flex flex-row items-center mb-2">
                     <FaPhoneAlt />
                     <a 
-                        href="https://api.whatsapp.com/send?phone=5491132129031" 
+                        href="https://api.whatsapp.com/send?phone=5491132129031&text=Hola%20Nicolas,%20quisiera%20saber%20más%20acerca%20de%20los%20servicios%20de%20Mettrix."  
                         target="_blank" 
                         className="ml-2 hover:underline"
                     >
