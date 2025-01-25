@@ -20,7 +20,7 @@ export const Inicio = () => {
           <h3 className="text-[12px] text-gray-500 max-w-[40%] mb-12">
             EN METTRIX DESARROLLAMOS TECNOLOGÍA INNOVADORA PARA AUTOMATIZAR PROCESOS, OPTIMIZAR RECURSOS Y FACILITAR LA TRANSFORMACIÓN DIGITAL EN EMPRESAS Y HOGARES.
           </h3>
-          <button className="bg-violeta text-white py-2 px-8 text-[12px] rounded-[50px]"
+          <button className="bg-violeta text-white py-2 px-8 text-[12px] rounded-[50px] hover:scale-95 duration-300 transform"
             onClick={() => goToSection("contacto")}>
             SOLICITÁ TU DESARROLLO PERSONALIZADO
             </button>
