@@ -1,6 +1,7 @@
 import tecnologicas from "../../assets/tecnologias.png"
 import industrias from "../../assets/industrias.png"
 import hogares from "../../assets/hogares.png"
+import energia from "../../assets/energia.png"
 
 export const Industrias = () => {
     return (
@@ -19,6 +20,10 @@ export const Industrias = () => {
                 <div className="flex flex-col justify-center items-center">
                     <img className= "w-[150px]" src={hogares}></img>
                     <a className="mt-2" >HOGARES</a>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                    <img className= "w-[150px]" src={energia}></img>
+                    <a className="mt-2" >ENERGÍA</a>
                 </div>
             </div>
         </div>
