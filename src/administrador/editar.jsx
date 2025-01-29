@@ -57,32 +57,9 @@ export const Editar = () => {
                 <TiArrowBack className="text-violeta text-5xl" />
         </button>
 
-        <div className="mt-12 w-auto px-10">
+        <div className="mt-6 w-auto px-10">
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex flex-row space-x-10">
-                <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Título:</label>
-            <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="titulo"
-              placeholder="Título del proyecto"
-              value={titulo}
-              onChange={(e) => setTitulo(e.target.value)}
-            />
-            </div>
-            <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Cliente:</label>
-            <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="cliente"
-              placeholder="Nombre del cliente"
-              value={cliente}
-              onChange={(e) => setCliente(e.target.value)}
-            />
-            </div>
-            </div>
+           
             <div className="flex flex-row space-x-10">
                 <div className="flex flex-col">
             <label className="mb-2 font-semibold text-verde text-xl">Proyecto:</label>
@@ -107,33 +84,29 @@ export const Editar = () => {
             />
             </div>
             </div>
-            <div className="flex flex-row space-x-10">
-                <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Servicio:</label>
+
+  
+            <label className="mb-2 font-semibold text-verde text-xl">Multimedia:</label>
             <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="servicio"
-              placeholder="Servicio proporcionado"
-              value={servicio}
-              onChange={(e) => setServicio(e.target.value)}
-            />
-            </div>
-            <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Imagen:</label>
-            <input
-              className="p-2 mb-8 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              className="p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
               type="file"
               id="imagen"
               onChange={(e) => setImagen(e.target.files[0])}
             />
-            </div>
-            </div>
+
             <label className="mb-2 font-semibold text-verde text-xl">Descripción:</label>
             <textarea
               className="w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
               id="descripcion"
               placeholder="Descripción del proyecto"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+            />
+             <label className="mb-2 font-semibold text-verde text-xl">Funciones:</label>
+            <textarea
+              className="w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              id="descripcion"
+              placeholder="Funciones del proyecto"
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
             />

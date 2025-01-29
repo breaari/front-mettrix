@@ -12,6 +12,8 @@ import { FormularioProyectos } from './administrador/formularioproyectos';
 import { Menu } from './administrador/menu'; // Importa el componente Menu
 import { Listado } from './administrador/listado';
 import { Editar } from './administrador/editar';
+import { ContactoMenu } from './components/contactomenu/contactomenu';
+import { ServiciosMenu } from './components/serviciosmenu/serviciosmenu';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -58,6 +60,32 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+         <Route
+          path="/contacto"
+          element={
+            <motion.div
+              initial={{ x: "-100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <ContactoMenu />
+            </motion.div>
+          }
+        />
+         <Route
+          path="/servicios"
+          element={
+            <motion.div
+              initial={{ x: "-100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <ServiciosMenu />
+            </motion.div>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -98,7 +126,7 @@ function App() {
             <AdminLayout>
               <Routes>
                 <Route path="agregar" element={<FormularioProyectos />} />
-                <Route path="listado" element={<Listado />} />
+                <Route path="/" element={<Listado />} />
                 <Route path="editar" element={<Editar />} />
                 
               </Routes>

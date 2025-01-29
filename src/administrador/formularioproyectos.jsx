@@ -4,47 +4,53 @@ import { useNavigate } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
 
 export const FormularioProyectos = () => {
-  const [titulo, setTitulo] = useState("");
-  const [cliente, setCliente] = useState("");
+
   const [proyecto, setProyecto] = useState("");
   const [sector, setSector] = useState("");
-  const [servicio, setServicio] = useState("");
+  const [multimedia, setMultimedia] = useState(null);
   const [descripcion, setDescripcion] = useState("");
-  const [imagen, setImagen] = useState(null);
+  const [funciones, setFunciones] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const goTo = (path) => {
     navigate(path);
   };
-
+  console.log("multimedia:", multimedia)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     const formData = new FormData();
-    formData.append("titulo", titulo);
-    formData.append("cliente", cliente);
-    formData.append("proyecto", proyecto);
+    formData.append("nombre", proyecto);  // "nombre" es el nombre del campo en tu modelo
     formData.append("sector", sector);
-    formData.append("servicio", servicio);
     formData.append("descripcion", descripcion);
-    if (imagen) formData.append("imagen", imagen);
-
+    formData.append("funciones", funciones);
+   
+    if (multimedia && multimedia.length > 0) {
+      // Si se seleccionaron archivos, los añadimos al formData
+      for (let i = 0; i < multimedia.length; i++) {
+        formData.append("multimedia", multimedia[i]);  // Asegúrate de enviar los archivos correctamente
+      }
+    }
+  
     try {
-      const responseBack = await axios.post("/proyectos", formData, {
+
+      console.log(formData)
+      const response = await axios.post("/proyectos", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      if (responseBack.data.success) {
-        goTo("/admin");
+      console.log("respuesta:", response.data)
+      if (response.data.success) {
+        goTo("/admin");  // Redirigir a la página de administración
       } else {
         setError("Ocurrió un error, intente nuevamente.");
       }
     } catch (error) {
       setError("Ocurrió un error, intente nuevamente.");
+      console.error(error);
     }
   };
 
@@ -58,30 +64,6 @@ export const FormularioProyectos = () => {
 
         <div className="mt-12 w-auto px-10">
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex flex-row space-x-10">
-                <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Título:</label>
-            <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="titulo"
-              placeholder="Título del proyecto"
-              value={titulo}
-              onChange={(e) => setTitulo(e.target.value)}
-            />
-            </div>
-            <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Cliente:</label>
-            <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="cliente"
-              placeholder="Nombre del cliente"
-              value={cliente}
-              onChange={(e) => setCliente(e.target.value)}
-            />
-            </div>
-            </div>
             <div className="flex flex-row space-x-10">
                 <div className="flex flex-col">
             <label className="mb-2 font-semibold text-verde text-xl">Proyecto:</label>
@@ -106,28 +88,15 @@ export const FormularioProyectos = () => {
             />
             </div>
             </div>
-            <div className="flex flex-row space-x-10">
-                <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Servicio:</label>
+            <label className="mb-2 font-semibold text-verde text-xl">Multimedia:</label>
             <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
-              type="text"
-              id="servicio"
-              placeholder="Servicio proporcionado"
-              value={servicio}
-              onChange={(e) => setServicio(e.target.value)}
-            />
-            </div>
-            <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-verde text-xl">Imagen:</label>
-            <input
-              className="p-2 mb-8 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              className="p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
               type="file"
-              id="imagen"
-              onChange={(e) => setImagen(e.target.files[0])}
+              id="multimedia"
+              name="multimedia"
+              onChange={(e) => setMultimedia(e.target.files)}
+              multiple
             />
-            </div>
-            </div>
             <label className="mb-2 font-semibold text-verde text-xl">Descripción:</label>
             <textarea
               className="w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
@@ -135,6 +104,14 @@ export const FormularioProyectos = () => {
               placeholder="Descripción del proyecto"
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
+            />
+            <label className="mb-2 font-semibold text-verde text-xl">Funciones:</label>
+            <textarea
+              className="w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              id="funciones"
+              placeholder="Funciones del proyecto"
+              value={funciones}
+              onChange={(e) => setFunciones(e.target.value)}
             />
             
 
