@@ -37,9 +37,9 @@ export const Listado = () => {
   };
 
   return (
-    <div className="p-12">
-      <div className="flex flex-row justify-between mb-12">
-        <h1 className="font-bold text-4xl">Proyectos</h1>
+    <div className="p-12 mq980:p-8">
+      <div className="flex flex-row justify-between mb-12 mq980:mb-8 mq980:flex-col mq980:justify-center mq980:text-center mq980:items-center">
+        <h1 className="font-bold text-4xl mq980:mb-4">Proyectos</h1>
         <button
           onClick={() => goTo("/admin/agregar")}
           className="flex flex-row font-semibold items-center h-[45px] px-8 border border-violeta hover:bg-violeta hover:text-white rounded-[50px] text-violeta duration-300 transform"
@@ -52,7 +52,7 @@ export const Listado = () => {
       {error && <div className="text-red-600">{error}</div>}
 
       {proyectos.length > 0 ? (
-        <div className=" grid grid-cols-2 gap-12">
+        <div className=" grid grid-cols-2 gap-12 mq980:grid-cols-1 mq980:gap-4">
           {proyectos.map((proyecto) => (
             <CardProyecto 
               key={proyecto.id} 

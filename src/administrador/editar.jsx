@@ -258,17 +258,17 @@ export const Editar = () => {
     <div className="w-full h-auto flex flex-col justify-center items-center">
       <div className="rounded-xl flex flex-col items-center justify-start py-12">
         <div className="font-bold text-violeta text-3xl">Editar proyecto</div>
-        <button onClick={() => navigate("/admin/listado")} className="absolute top-[30px] left-[250px] cursor-pointer">
+        <button onClick={() => navigate("/admin/inicio")} className="absolute top-[30px] left-[250px] cursor-pointer">
           <TiArrowBack className="text-violeta text-5xl" />
         </button>
 
         <div className="mt-6 w-auto px-10">
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex flex-row space-x-10">
+            <div className="flex flex-row space-x-10 mq980:flex-col mq980:space-x-0">
               <div className="flex flex-col">
                 <label className="mb-2 font-semibold text-verde text-xl">Nombre del Proyecto:</label>
                 <input
-                  className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+                  className="w-[375px] mq980:w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
                   type="text"
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
@@ -277,7 +277,7 @@ export const Editar = () => {
               <div className="flex flex-col">
                 <label className="mb-2 font-semibold text-verde text-xl">Sector:</label>
                 <input
-                  className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+                  className="w-[375px] mq980:w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
                   type="text"
                   value={sector}
                   onChange={(e) => setSector(e.target.value)}
@@ -286,7 +286,7 @@ export const Editar = () => {
             </div>
 
             <label className="mb-2 font-semibold text-verde text-xl">Multimedia:</label>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mq980:flex-col mq980:justify-center">
               {multimedia && (
                 Array.isArray(multimedia) || typeof multimedia === "string" ? (
                   (Array.isArray(multimedia) ? multimedia : [multimedia]).map((arch, index) => (
@@ -298,7 +298,7 @@ export const Editar = () => {
                       )}
                       <button 
                         type="button"
-                        className="absolute top-0 right-0 bg-violeta hover:bg-red-600 text-white p-3 m-1 rounded-full"
+                        className="absolute top-0 right-0 mq980:right-1/2 bg-violeta hover:bg-red-600 text-white p-3 m-1 rounded-full"
                         onClick={() => handleEliminarArchivo(arch)}
                       >
                         <FaTrash />

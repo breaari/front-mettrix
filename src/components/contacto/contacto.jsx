@@ -2,8 +2,8 @@ import { Form } from "./form";
 
 export const Contacto = () => {
     return (
-        <div id="contacto" className="w-full h-auto flex flex-row justify-center items-center px-32 py-20 ">
-            <div className="w-1/2 h-full bg-white">
+        <div id="contacto" className="w-full h-auto flex flex-row mq980:flex-col justify-center items-center px-32 py-20 mq980:px-8">
+            <div className="w-1/2 mq980:w-full h-full bg-white">
                 <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
                     Contáctanos y juntos haremos realidad tus proyectos tecnológicos.
                 </h2>
@@ -24,7 +24,7 @@ export const Contacto = () => {
                     <strong>¡Estamos listos para convertir tus ideas en realidad!</strong>
                 </h3>
             </div>
-            <div className="w-1/2 flex flex-col ml-24 justify-center bg-white">
+            <div className="w-1/2 mq980:w-full mq980:ml-0 flex flex-col ml-24 justify-center bg-white mq980:mt-8">
                
                 <Form></Form>
             </div>

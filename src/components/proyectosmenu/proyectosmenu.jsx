@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Card } from "./card";
+import { Card } from "../proyectos/card";
 
-export const Proyectos = () => {
+export const ProyectosMenu = () => {
   const [proyectos, setProyectos] = useState([]);
 
   useEffect(() => {
@@ -17,8 +17,8 @@ export const Proyectos = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-16 flex flex-col justify-center items-center mq980:p-8">
-      <h1 className="h-[60px] mq980:h-[130px] font-bold text-4xl border-b border-black mb-16 inline-block">Explorá nuestro impacto a través de los proyectos</h1>
+    <div className="bg-gray-100 py-16 flex flex-col justify-center items-center mq980:p-8 mq980:mt-[138px]">
+      <h1 className="mq980:hidden h-[60px] mq980:h-[130px] font-bold text-4xl border-b border-black mb-16 inline-block">Explorá nuestro impacto a través de los proyectos</h1>
       <div className="flex flex-wrap gap-8 justify-center">
         {proyectos.map((proyecto) => (
           <Card key={proyecto.id} proyecto={proyecto} />
@@ -27,4 +27,3 @@ export const Proyectos = () => {
     </div>
   );
 };
-

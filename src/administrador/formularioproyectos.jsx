@@ -55,20 +55,20 @@ export const FormularioProyectos = () => {
   };
 
   return (
-    <div className="w-full h-auto flex flex-col justify-center items-center">
-        <button onClick={() => goTo('/admin/listado')} className="absolute top-[30px] left-[250px] cursor-pointer">
+    <div className="w-full h-auto flex flex-col justify-center items-center ">
+        <button onClick={() => goTo('/admin/inicio')} className="mq980:hidden absolute top-[30px] left-[250px] cursor-pointer">
         <TiArrowBack className="text-violeta text-5xl" />
         </button>
-      <div className=" flex flex-col items-center justify-start py-8">
+      <div className=" flex flex-col items-center justify-start py-8 mq980:px-8">
         <div className="font-bold text-violeta text-3xl">Agregar proyecto</div>
 
-        <div className="mt-12 w-auto px-10">
+        <div className="mt-12 w-auto px-10 mq980:px-8 mq980:mt-8">
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex flex-row space-x-10">
+            <div className="flex flex-row space-x-10 mq980:flex-col mq980:space-x-0">
                 <div className="flex flex-col">
             <label className="mb-2 font-semibold text-verde text-xl">Proyecto:</label>
             <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              className="w-[375px] mq980:w-full p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
               type="text"
               id="proyecto"
               placeholder="Nombre del proyecto"
@@ -79,7 +79,7 @@ export const FormularioProyectos = () => {
             <div className="flex flex-col">
             <label className="mb-2 font-semibold text-verde text-xl">Sector:</label>
             <input
-              className="w-[375px] p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
+              className="w-[375px]  mq980:w-full  p-2 mb-4 rounded-md border border-gray-300 focus:outline-none text-gray-700"
               type="text"
               id="sector"
               placeholder="Sector del proyecto"

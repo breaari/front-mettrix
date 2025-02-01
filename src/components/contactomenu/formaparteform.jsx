@@ -1,6 +1,6 @@
 export const FormaParteForm = () => {
     return (
-        <div className="p-12 bg-gray-100 rounded-xl">
+        <div className="p-12 bg-gray-100 rounded-xl mq980:p-8">
             <form className="space-y-4">
                 {/* Nombre */}
                 <div>

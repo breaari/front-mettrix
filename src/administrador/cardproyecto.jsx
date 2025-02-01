@@ -39,7 +39,7 @@ export const CardProyecto = ({ proyecto, onDelete }) => {
   };
 
   return (
-    <div className="border-gray-200 border rounded-lg w-[350px] h-[300px] bg-white shadow-md overflow-hidden">
+    <div className="border-gray-200 border rounded-lg w-[350px] h-[300px] mq980:w-full bg-white shadow-md overflow-hidden">
       <div className="relative w-full h-[70%]">
         <img
           src={imagen}
@@ -48,7 +48,7 @@ export const CardProyecto = ({ proyecto, onDelete }) => {
           onError={() => setImagen(imgDefault)}
         />
 
-        <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 mq980:opacity-100 hover:opacity-100 transition-opacity duration-300">
           <div className="absolute inset-0 bg-violeta opacity-50"></div>
 
           <div className="flex flex-row space-x-5">

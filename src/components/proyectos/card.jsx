@@ -10,7 +10,7 @@ export const Card = ({ proyecto }) => {
   };
 
   return (
-    <div className="border-gray-200 border rounded-2xl w-[350px] h-[300px] bg-white shadow-md overflow-hidden">
+    <div className="border-gray-200 border rounded-2xl w-[350px] h-[300px] mq980:w-full bg-white shadow-md overflow-hidden">
       <div className="relative w-full h-[70%]">
         {/* Imagen */}
         <img

@@ -1,9 +1,9 @@
 export const Tipos = () => {
   return (
-    <div className="w-full h-auto flex flex-col items-center px-16 py-12 space-y-12">
+    <div className="w-full h-auto flex flex-col items-center px-16 py-12 space-y-12 mq980:p-4 mq980:space-y-4 ">
       
       {/* Automatización */}
-      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20">
+      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20 mq980:p-8">
         <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
           AUTOMATIZACIÓN
         </h2>
@@ -19,7 +19,7 @@ export const Tipos = () => {
       </div>
 
       {/* Gestión de procesos */}
-      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20">
+      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20  mq980:p-8">
         <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
           GESTIÓN DE PROCESOS
         </h2>
@@ -34,7 +34,7 @@ export const Tipos = () => {
       </div>
 
       {/* Monitoreo */}
-      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20">
+      <div className="w-full bg-gray-100 rounded-xl border border-gray-100 p-20  mq980:p-8">
         <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
           MONITOREO
         </h2>

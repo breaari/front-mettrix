@@ -5,10 +5,10 @@ import energia from "../../assets/energia.png"
 
 export const Industrias = () => {
     return (
-        <div className="flex flex-col items-center justify-center py-12 px-32 font-medium">
-            <h2 className="text-violeta text-lg h-[30px] border-b border-gray-300 inline-block mb-6">Liderando Proyectos en multiples Industrias</h2>
-            <h1 className="font-bold text-black text-4xl mb-6">INDUSTRIAS EN LAS QUE TENEMOS EXPERIENCIA</h1>
-            <div className="flex flex-row w-full justify-evenly mt-6">
+        <div className="flex flex-col items-center justify-center py-12 px-32 font-medium mq980:p-8">
+            <h2 className="text-violeta text-lg h-[30px] mq980:h-[60px] border-b border-gray-300 inline-block mb-6">Liderando Proyectos en multiples Industrias</h2>
+            <h1 className="font-bold text-black text-4xl mb-6 mq980:text-3xl">INDUSTRIAS EN LAS QUE TENEMOS EXPERIENCIA</h1>
+            <div className="flex flex-row w-full justify-evenly mt-6 mq980:flex-col mq980:space-y-4">
                 <div className="flex flex-col justify-center items-center">
                     <img className= "w-[150px]" src={tecnologicas}></img>
                     <a className="mt-2" >TECNOLÓGICAS</a>

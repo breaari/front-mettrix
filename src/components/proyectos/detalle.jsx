@@ -59,8 +59,8 @@ export const Detalle = () => {
   const galleryItems = generateGalleryItems(proyecto.multimedia);
 
   return (
-    <div className="mt-[138px] px-8 py-16 flex flex-row">
-      <div className="w-1/2">
+    <div className="mt-[138px] px-8 py-16 flex flex-row mq980:flex-col mq980:py-8">
+      <div className="w-1/2 mq980:hidden">
         <Gallery
           items={galleryItems}
           thumbnailPosition="left"
@@ -71,9 +71,20 @@ export const Detalle = () => {
           onClick={(_, index) => setCurrentIndex(index)}  // Cambia el índice actual cuando haces clic
         />
       </div>
+      <div className="w-full hidden mq980:block ">
+      <h1 className="text-4xl font-bold mb-8">{proyecto.nombre}</h1>
+        <Gallery
+          items={galleryItems}
+          showPlayButton={false}
+          autoPlay={false} 
+          showNav={false} 
+          showFullscreenButton={false} // Miniaturas a la izquierda
+          onClick={(_, index) => setCurrentIndex(index)}  // Cambia el índice actual cuando haces clic
+        />
+      </div>
 
-      <div className="w-1/2 px-8">
-        <h1 className="text-4xl font-bold">{proyecto.nombre}</h1>
+      <div className="w-1/2 px-8 mq980:w-full mq980:px-0">
+        <h1 className="mq980:hidden text-4xl font-bold">{proyecto.nombre}</h1>
         <p className="text-xl mt-4">{proyecto.descripcion}</p>
         <p className="text-xl mt-4"><strong>Funciones: </strong>{proyecto.funciones}</p>
       </div>

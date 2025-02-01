@@ -9,8 +9,8 @@ export const Nosotros = () => {
   };
 
   return (
-    <div className="w-full h-auto flex flex-row justify-center items-center px-32 py-24 ">
-      <div className="w-1/2 h-full bg-white">
+    <div className="w-full h-auto flex flex-row mq980:flex-col justify-center items-center px-32 py-24 mq980:p-8 ">
+      <div className="w-1/2 h-full bg-white mq980:w-full">
         <h2 className="text-xl font-bold mb-4 text-violeta border-gray-300 border-b inline-block">
           LIDERANDO LA INNOVACIÓN DIGITAL PARA EMPRESAS Y HOGARES
         </h2>
@@ -34,8 +34,8 @@ export const Nosotros = () => {
           Más detalles
         </button>
       </div>
-      <div className="w-1/2 flex flex-col ml-24 justify-center items-center bg-white">
-        <img src={logomsombra} className="w-[350px] hover:translate-x-5 duration-500 transform"></img>
+      <div className="w-1/2 mq980:w-full flex flex-col ml-24  mq980:ml-0 mq980:mt-8 justify-center items-center bg-white">
+        <img src={logomsombra} className="w-[350px] mq980:hover:translate-x-0 hover:translate-x-5 duration-500 transform"></img>
       </div>
     </div>
   );

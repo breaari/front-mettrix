@@ -5,9 +5,9 @@ import { IoLocationSharp } from "react-icons/io5";
 
 export const Footer = () => {
     return (
-        <div className="bg-violeta px-32 flex flex-row justify-between">
-            <img src={logoMettrix} className="h-[170px]" alt="Logo Mettrix" />
-            <div className="text-white flex flex-col justify-center">
+        <div className="bg-violeta px-32 flex flex-row justify-between mq980:px-8 mq980:flex-col">
+            <img src={logoMettrix} className="h-[170px] mq980:h-auto" alt="Logo Mettrix" />
+            <div className="text-white flex flex-col justify-center mq980:py-8">
                 <div className="flex flex-row items-center mb-2">
                     <FaPhoneAlt />
                     <a 

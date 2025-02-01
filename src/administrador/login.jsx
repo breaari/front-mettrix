@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [passwordType, setPasswordType] = useState("password");
-  const [icon, setIcon] = useState(<IoMdEyeOff className="text-verde text-xl" />);
+  const [icon, setIcon] = useState(<IoMdEyeOff className="text-violeta text-xl" />);
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState("");
@@ -49,7 +49,7 @@ export const Login = () => {
     
       if (responseBack.data.success) {
         localStorage.setItem('usuario', JSON.stringify(responseBack.data.usuario));
-        goTo('/admin');
+        goTo('/admin/inicio');
       } else {
         setError("Email y/o contraseña incorrectos, intente denuevo.");
       }
@@ -68,7 +68,7 @@ export const Login = () => {
 
   return (
     <div className=" w-full h-screen flex flex-col justify-center items-center">
-      <div className=" w-[400px] h-[500px] rounded-xl flex flex-col items-center justify-start shadow-xl border-2 border-verde">
+      <div className=" w-[400px] h-[500px] mq980:w-full mq980:h-auto rounded-xl flex flex-col items-center justify-start shadow-xl border border-gray-200 mq980:shadow-none mq980:border-none">
          {/* Contenedor del logo */}
         <div className="bg-verde h-[150px] w-[400px] flex items-center justify-center rounded-tr-xl rounded-tl-xl overflow-hidden">
             <img src={logo} className="w-[250px] object-cover" alt="Logo" />
@@ -82,7 +82,7 @@ export const Login = () => {
               <input className="p-2 mb-8 rounded-md border border-gray-300 focus:outline-none w-full text-gray-700" type={passwordType} id="contraseña" placeholder="*********" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
               <span className="absolute right-2 top-2 cursor-pointer" onClick={handlePasswordType}>{icon}</span>
             </div>
-            <button className="bg-verde font-semibold text-md p-2 rounded-md text-white hover:bg-verdeoscuro hover:scale-95" type="submit">Ingresar</button>
+            <button className="bg-violeta font-semibold text-md p-2 rounded-md text-white hover:scale-95" type="submit">Ingresar</button>
             {error && <p className="text-red-800 text-sm mt-2 text-center">{error}</p>}
           </form>
         </div>

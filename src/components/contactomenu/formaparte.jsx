@@ -2,8 +2,8 @@ import { FormaParteForm } from "./formaparteform";
 
 export const FormaParte = () => {
     return (
-        <div id="contacto" className="w-full h-auto flex flex-row justify-center items-center px-24 py-20 ">
-            <div className="w-1/3 h-full bg-white">
+        <div id="contacto" className="w-full h-auto flex flex-row  mq980:flex-col justify-center items-center px-24 py-20 mq980:p-8">
+            <div className="w-1/3 h-full bg-white mq980:w-full">
                 <h2 className="text-xl mb-4 h-[35px] text-violeta border-gray-300 border-b inline-block">
                     Únete a nuestro equipo
                 </h2>
@@ -24,7 +24,7 @@ export const FormaParte = () => {
                     <strong>¡Gracias por tu interés en formar parte de Mettrix!</strong>
                 </h3>
             </div>
-            <div className="w-2/3 flex flex-col ml-24 justify-center bg-white">
+            <div className="w-2/3 flex flex-col ml-24 justify-center bg-white mq980:w-full mq980:ml-0 mq980:mt-8">
                
                 <FormaParteForm></FormaParteForm>
             </div>

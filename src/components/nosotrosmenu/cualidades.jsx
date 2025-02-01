@@ -7,7 +7,7 @@ import { FaFileAlt } from "react-icons/fa";
 
 export const Cualidades = () => {
     return (
-        <div className="bg-violeta h-[800px] text-white grid grid-cols-2 gap-8 p-20">
+        <div className="bg-violeta h-[800px] text-white grid grid-cols-2 gap-8 p-20 mq980:grid-cols-1 mq980:h-auto mq980:p-8">
             <div className="flex flex-col">
                 <div className="flex items-center text-2xl mb-4">
                     <div className="bg-white p-2 rounded-full">

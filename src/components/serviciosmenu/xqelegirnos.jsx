@@ -1,15 +1,15 @@
 
 export const Xqelerginos = () => {
     return (
-      <div className="bg-gray-100 w-full h-auto flex flex-col items-center px-32 py-16">
-        <h2 className="text-5xl font-semibold mb-12 text-black text-center border-b border-gray-400 pb-3">
+      <div className="bg-gray-100 w-full h-auto flex flex-col items-center px-32 py-16 mq980:p-8">
+        <h2 className="text-5xl font-semibold mb-12 text-black text-center border-b border-gray-400 pb-3  mq980:text-4xl">
           ¿Por qué elegir Mettrix?
         </h2>
   
-        <div className="grid grid-cols-3 gap-12 w-full text-start">
+        <div className="grid grid-cols-3 gap-12 w-full text-start mq980:grid-cols-1 mq980:gap-8">
           
           {/* Automatización */}
-          <div className=" p-8 ">
+          <div className=" p-8 mq980:p-0">
             <h3 className="text-2xl font-bold text-violeta mb-6 ">
               AUTOMATIZACIÓN
             </h3>
@@ -21,8 +21,8 @@ export const Xqelerginos = () => {
           </div>
   
           {/* Gestión de Procesos */}
-          <div className=" p-8 ">
-            <h3 className="text-2xl font-bold text-violeta mb-6 ">
+          <div className=" p-8 mq980:p-0">
+            <h3 className="text-2xl font-bold text-violeta mb-6">
               GESTIÓN DE PROCESOS
             </h3>
             <ul className="text-lg text-gray-700 space-y-4">
@@ -33,7 +33,7 @@ export const Xqelerginos = () => {
           </div>
   
           {/* Monitoreo */}
-          <div className=" p-8 ">
+          <div className=" p-8 mq980:p-0">
             <h3 className="text-2xl font-bold text-violeta mb-6 ">
               MONITOREO
             </h3>
