@@ -13,7 +13,7 @@ export const ContactoMenu = () => {
     return (
         <div className="mt-[138px]">
             <img src={contactodesktop}></img>
-            <div className=" py-12 px-16">
+            <div className="bg-gray-100 py-12 px-16">
             <Datos></Datos>
             </div>
             <Contacto2></Contacto2>

@@ -5,24 +5,20 @@ import { CardProyecto } from "./cardproyecto";
 
 export const Listado = () => {
   const navigate = useNavigate();
-  const [proyectos, setProyectos] = useState([]);  // Estado para almacenar los proyectos
-  const [error, setError] = useState(null);  // Para manejar errores
+  const [proyectos, setProyectos] = useState([]);
+  const [error, setError] = useState(null);
 
-  const goTo = (path) => {
-    navigate(path);
-  };
+  const goTo = (path) => navigate(path);
 
   useEffect(() => {
-    // Función para obtener los proyectos de la API
     const fetchProyectos = async () => {
       try {
         const response = await fetch("http://localhost:3000/proyectos");
         const data = await response.json();
         console.log("data:", data);
-  
-        // Verifica si la respuesta tiene proyectos
-        if (data && Array.isArray(data) && data.length > 0) {
-          setProyectos(data);  // Asignar los proyectos al estado
+
+        if (Array.isArray(data) && data.length > 0) {
+          setProyectos(data);
         } else {
           setError("No se encontraron proyectos.");
         }
@@ -31,11 +27,14 @@ export const Listado = () => {
         console.error(error);
       }
     };
-  
-    fetchProyectos();
-  }, []);  // Se ejecuta solo una vez al montar el componente
 
-  
+    fetchProyectos();
+  }, []);
+
+  // Función para eliminar un proyecto de la lista
+  const handleDeleteProyecto = (id) => {
+    setProyectos((prevProyectos) => prevProyectos.filter((p) => p.id !== id));
+  };
 
   return (
     <div className="p-12">
@@ -49,15 +48,17 @@ export const Listado = () => {
           Agregar
         </button>
       </div>
-  
-      {/* Muestra un mensaje de error si ocurre un problema */}
+
       {error && <div className="text-red-600">{error}</div>}
-  
-      {/* Renderiza los proyectos si hay datos */}
+
       {proyectos.length > 0 ? (
-        <div className="grid grid-cols-2 gap-12">
+        <div className=" grid grid-cols-2 gap-12">
           {proyectos.map((proyecto) => (
-            <CardProyecto key={proyecto.id} proyecto={proyecto} />
+            <CardProyecto 
+              key={proyecto.id} 
+              proyecto={proyecto} 
+              onDelete={handleDeleteProyecto} 
+            />
           ))}
         </div>
       ) : (
@@ -65,4 +66,4 @@ export const Listado = () => {
       )}
     </div>
   );
-}  
+};

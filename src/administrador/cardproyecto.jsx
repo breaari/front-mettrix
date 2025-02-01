@@ -2,40 +2,50 @@ import { useState, useEffect } from "react";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import imgDefault from "../assets/proyecto.jpg";
 
-export const CardProyecto = ({ proyecto }) => {
+export const CardProyecto = ({ proyecto, onDelete }) => {
   const navigate = useNavigate();
   const [showConfirm, setShowConfirm] = useState(false);
-  const [imagen, setImagen] = useState(""); // Estado para almacenar la imagen
+  const [imagen, setImagen] = useState(imgDefault);
 
   useEffect(() => {
-    // Si hay multimedia, selecciona la primera imagen (o el archivo) de la lista
-    if (proyecto.multimedia && proyecto.multimedia.length > 0) {
-      // Aquí le añades la URL base como en tu ejemplo anterior
-      setImagen(`https://localhost:3000/${proyecto.multimedia[0]}`); // Concatenando URL base
-    } else {
-      setImagen("../assets/proyecto.jpg"); // Imagen por defecto si no hay multimedia
+    if (proyecto?.multimedia) {
+      const multimediaPath = Array.isArray(proyecto.multimedia) 
+        ? proyecto.multimedia[0] 
+        : proyecto.multimedia;
+
+      if (multimediaPath) {
+        setImagen(`http://localhost:3000/${multimediaPath}`);
+      }
     }
-  }, [proyecto]); // Se ejecuta cada vez que el proyecto cambia
+  }, [proyecto]);
 
-  const goToSection = (route) => {
-    navigate(route);
-  };
+  const goToSection = (route) => navigate(route);
 
-  const handleDelete = () => {
-    // Acción de eliminación aquí
-    console.log("Proyecto eliminado");
-    setShowConfirm(false); // Cierra el modal después de eliminar
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/proyectos/${proyecto.id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Error al eliminar el proyecto");
+
+      setShowConfirm(false);
+      onDelete(proyecto.id); // Llama a la función para actualizar la lista
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
     <div className="border-gray-200 border rounded-lg w-[350px] h-[300px] bg-white shadow-md overflow-hidden">
       <div className="relative w-full h-[70%]">
-        {/* Imagen dinámica */}
         <img
-          src={imagen}  // Usa la imagen correspondiente al proyecto
+          src={imagen}
           className="w-full h-full object-cover rounded-t-lg"
-          alt={proyecto.nombre}
+          alt={proyecto.nombre || "Proyecto"}
+          onError={() => setImagen(imgDefault)}
         />
 
         <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
@@ -49,7 +59,7 @@ export const CardProyecto = ({ proyecto }) => {
               <BiSolidEditAlt />
             </button>
             <button
-              onClick={() => setShowConfirm(true)}  // Muestra el modal al hacer clic en eliminar
+              onClick={() => setShowConfirm(true)}
               className="bg-red-600 text-white text-3xl p-4 rounded-full flex items-center justify-center w-16 h-16 mb-2 relative"
             >
               <RiDeleteBin4Fill />
@@ -57,13 +67,13 @@ export const CardProyecto = ({ proyecto }) => {
           </div>
         </div>
       </div>
+
       <div className="h-[30%] flex justify-center items-center">
         <h2 className="text-sm text-center text-gray-500 font-semibold">
-          {proyecto.nombre || "Proyecto desconocido"}  {/* Muestra el nombre del proyecto */}
+          {proyecto.nombre || "Proyecto desconocido"}
         </h2>
       </div>
 
-      {/* Modal de confirmación */}
       {showConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-80">
@@ -72,13 +82,13 @@ export const CardProyecto = ({ proyecto }) => {
             </h3>
             <div className="flex justify-center space-x-4">
               <button
-                onClick={() => setShowConfirm(false)}  // Cierra el modal sin eliminar
+                onClick={() => setShowConfirm(false)}
                 className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
               >
                 Cancelar
               </button>
               <button
-                onClick={handleDelete}  // Llama a la función de eliminación
+                onClick={handleDelete}
                 className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
               >
                 Eliminar
