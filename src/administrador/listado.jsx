@@ -13,7 +13,7 @@ export const Listado = () => {
   useEffect(() => {
     const fetchProyectos = async () => {
       try {
-        const response = await fetch("http://localhost:3000/proyectos");
+        const response = await fetch("https://back.mettrix.com.ar/proyectos");
         const data = await response.json();
         console.log("data:", data);
 

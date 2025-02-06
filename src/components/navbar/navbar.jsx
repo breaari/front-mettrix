@@ -1,10 +1,10 @@
 import { FaYoutube } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 import logomettrix from "../../assets/logomettrix.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
+import { FaInstagram } from "react-icons/fa";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);  // Estado para controlar la visibilidad del menú
@@ -21,12 +21,21 @@ export const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-50">
       <div className="bg-violeta h-9 w-full text-white text-[17px] flex flex-row px-32 mq980:px-0 mq980:justify-center space-x-4 items-center">
-        <FaYoutube />
-        <FaFacebookF />
-        <FaLinkedinIn />
+        <a href="https://www.youtube.com/@nsarago_mettrix/featured" target="_blank" rel="noopener noreferrer">
+          <FaYoutube />
+        </a>
+        <a href="https://www.tiktok.com/@mettrix.com.ar" target="_blank" rel="noopener noreferrer">
+          <FaTiktok />
+        </a>
+        <a href="https://www.instagram.com/mettrix_ar/" target="_blank" rel="noopener noreferrer">
+          <FaInstagram />
+        </a>
       </div>
       <div className="bg-white h-[100px] flex flex-row items-center justify-between overflow-hidden shadow-sm px-32 mq980:px-12">
-        <img src={logomettrix} className="object-cover h-[170px]" alt="Logo Mettrix" />
+        {/* <img src={logomettrix} className="object-cover h-[170px]" alt="Logo Mettrix" /> */}
+        <button onClick={() => goToSection('/')}>
+          <img src={logomettrix} className="object-cover h-[170px]" alt="Logo Mettrix" />
+        </button>
 
         {/* Menú desplegable en móviles */}
         <div className="hidden mq980:block ">
@@ -73,7 +82,7 @@ export const Navbar = () => {
         )}
 
         {/* Menú para pantallas grandes */}
-        <div className=" mq980:hidden text-gray-500">
+        <div className="bg-white mq980:hidden text-gray-500 space-x-12">
           <button
             onClick={() => goToSection('/')}
             className={`relative pb-2 ${isActive('/') ? 'after:content-[""] after:absolute after:top-[-35px] after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-1 after:bg-violeta' : ''}`}

@@ -1,20 +1,24 @@
-import { useNavigate } from 'react-router-dom';  // Importa useNavigate
+import { useNavigate } from 'react-router-dom';  
 import { FaLink } from 'react-icons/fa';
 
 export const Card = ({ proyecto }) => {
-  const navigate = useNavigate();  // Hook para navegar
+  const navigate = useNavigate();  
 
   const goToDetail = () => {
     const projectUrl = `/proyectos/${proyecto.nombre.toLowerCase().replace(/ /g, "-")}`;
-    navigate(projectUrl);  // Redirige al detalle del proyecto
+    navigate(projectUrl);  
   };
+
+  // Asegurar que multimedia sea un array
+  const multimedia = Array.isArray(proyecto.multimedia) ? proyecto.multimedia : [proyecto.multimedia];
+  console.log("locura:", `https://back.mettrix.com.ar/${multimedia[0]}`);
 
   return (
     <div className="border-gray-200 border rounded-2xl w-[350px] h-[300px] mq980:w-full bg-white shadow-md overflow-hidden">
       <div className="relative w-full h-[70%]">
         {/* Imagen */}
         <img
-          src={`http://localhost:3000/${proyecto.multimedia[0]}`} // Usamos la primera imagen
+          src={`https://back.mettrix.com.ar/${multimedia[0]}`} 
           className="w-full h-full object-cover rounded-t-2xl"
           alt={proyecto.nombre}
         />
@@ -26,7 +30,7 @@ export const Card = ({ proyecto }) => {
           
           {/* Ícono con evento de click */}
           <button
-            onClick={goToDetail}  // Redirige al detalle del proyecto al hacer clic
+            onClick={goToDetail}  
             className="bg-violeta text-white text-3xl p-4 rounded-full flex items-center justify-center w-16 h-16 mb-2 relative"
           >
             <FaLink />

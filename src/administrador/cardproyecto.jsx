@@ -16,7 +16,7 @@ export const CardProyecto = ({ proyecto, onDelete }) => {
         : proyecto.multimedia;
 
       if (multimediaPath) {
-        setImagen(`http://localhost:3000/${multimediaPath}`);
+        setImagen(`https://back.mettrix.com.ar/${multimediaPath}`);
       }
     }
   }, [proyecto]);
@@ -25,7 +25,7 @@ export const CardProyecto = ({ proyecto, onDelete }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/proyectos/${proyecto.id}`, {
+      const response = await fetch(`https://back.mettrix.com.ar/proyectos/${proyecto.id}`, {
         method: "DELETE",
       });
 

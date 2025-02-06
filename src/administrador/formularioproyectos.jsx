@@ -44,7 +44,7 @@ export const FormularioProyectos = () => {
       });
       console.log("respuesta:", response.data)
       if (response.data.success) {
-        goTo("/admin");  // Redirigir a la página de administración
+        goTo("/admin/inicio");  // Redirigir a la página de administración
       } else {
         setError("Ocurrió un error, intente nuevamente.");
       }

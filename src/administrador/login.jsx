@@ -67,7 +67,7 @@ export const Login = () => {
   };
 
   return (
-    <div className=" w-full h-screen flex flex-col justify-center items-center">
+    <div className=" w-full h-screen flex flex-col justify-center items-center bg-white">
       <div className=" w-[400px] h-[500px] mq980:w-full mq980:h-auto rounded-xl flex flex-col items-center justify-start shadow-xl border border-gray-200 mq980:shadow-none mq980:border-none">
          {/* Contenedor del logo */}
         <div className="bg-verde h-[150px] w-[400px] flex items-center justify-center rounded-tr-xl rounded-tl-xl overflow-hidden">
